@@ -31,5 +31,27 @@
 
 <?php include('partials/footer.php')?>
 
-<!-- process the value from form and save it in database -->
-<!-- check whether buton is clicked or not -->
+<?php
+// process the value from form and save it in database 
+// check whether buton is clicked or not 
+if(isset($_POST['submit'])){
+    //buttton clicked
+    // echo "button clicked";
+    //get the data from our form
+    $full_name = $_POST['full_name'];
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+
+    // sql query to save the data in db
+    $sql = "INSERT INTO tbl_admin SET
+    full_name = '$full_name',
+    username = '$username',
+    password = '$password'
+    ";
+
+    // execute query and save data in db
+    $conn = mysqli_connect('localhost', 'username', 'password', 'dbname');
+    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+}
+?>
+
