@@ -37,21 +37,21 @@
 if(isset($_POST['submit'])){
     //buttton clicked
     // echo "button clicked";
-    //get the data from our form
+    //1. get the data from our form
     $full_name = $_POST['full_name'];
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = md5($_POST['password']); //password encryption with MD5
 
-    // sql query to save the data in db
+    //2. SQL query to save the data in db
     $sql = "INSERT INTO tbl_admin SET
     full_name = '$full_name',
     username = '$username',
     password = '$password'
     ";
 
-    // execute query and save data in db
-    $conn = mysqli_connect('localhost', 'username', 'password', 'dbname');
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+  
+
+    // $res = mysqli_query($conn, $sql) or die(mysqli_error());
 }
 ?>
 
