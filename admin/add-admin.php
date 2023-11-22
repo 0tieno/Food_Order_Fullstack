@@ -50,8 +50,17 @@ if(isset($_POST['submit'])){
     ";
 
   
+    // 3. Executing query and saving data into db
+    $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
-    // $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    // 4. check whether the (Query is executed) data is inserted or not
+    if($res==TRUE){
+        //Data is inserted
+        echo"data inserted";
+    }else{
+        //Data not inserted
+        echo"data not inserted";
+    }
 }
 ?>
 
